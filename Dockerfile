@@ -1,3 +1,3 @@
 FROM php:apache
 RUN a2enmod rewrite
-COPY src/ /var/www/html/
+COPY index.html /var/www/html/
