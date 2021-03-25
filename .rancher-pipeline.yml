@@ -2,7 +2,7 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: php:apache
+      image: busybox
       shellScript: |-
         mkdir -p /go/src/github.com/rancher
         ln -s `pwd` /go/src/github.com/rancher/pipeline-example-go
