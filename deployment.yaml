@@ -12,6 +12,8 @@ spec:
       labels:
         app: nginx-deployment
     spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
       containers:
       - name: nginx-deployment
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
