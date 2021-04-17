@@ -3,7 +3,8 @@ stages:
   steps:
   - runScriptConfig:
       image: apache
-      
+      shellScript: |-
+        apt-get update    
 - name: Publish
   steps:
   - publishImageConfig:
