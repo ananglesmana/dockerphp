@@ -2,38 +2,35 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-  namespace: coba-namespace
+  coba-namespace
 spec:
   selector:
     matchLabels:
-      app: nginx-deployment
+      app: test-jenkins
   replicas: 2
   template:
     metadata:
       labels:
-        app: nginx-deployment
+        app: test-jenkins
     spec:
-      imagePullSecrets:
-      - name: pipeline-docker-registry
       containers:
-      - name: nginx-deployment
-        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+      - name: test-jenkins
+        image: anang05/app-coba:v2
         ports:
         - containerPort: 80
       restartPolicy: Always
-     
----
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-deployment
+  name: test-jenkins
   namespace: coba-namespace
   labels:
-    app: nginx-deployment
+    app: test-jenkins
 spec:
   type: NodePort
   ports:
   - port: 80
-    nodePort: 30017
+    nodePort: 30019
   selector:
-    app: nginx-deployment   
+    app: test-jenkins
