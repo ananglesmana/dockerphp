@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: test-jenkins
-        image: anang05/app-coba:v2
+        image: anang05/app-coba:v1
         ports:
         - containerPort: 80
       restartPolicy: Always
