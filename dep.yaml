@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-jenkins
-  namespaces: coba-namespace
+  namespace: coba-namespace
 spec:
   selector:
     matchLabels:
